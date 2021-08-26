@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Bethany's Pie Shop!</title>
+    <meta name="author" content="Bethany's Pie Shop">
+    <meta name="description" content="Store front for Bethany's Pie Shop">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        fieldset {
+            width: 500px;
+        }
+        input[type='text'], input[type='email'], input[type='password'], input[type='date'], input[type='tel'], input[type='time'], input[type='number'], select, textarea {
+            width: 77%;
+            padding: 5px;
+            
+        }
+
+        input, textarea, select {
+            border-radius: 5px;
+        }
+
+        .form-label{
+            margin-top: 15px;
+        }
+
+        input[type='submit'] {
+            cursor: pointer;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        /* validation */
+        input:valid, textarea:valid {
+            border: 2px solid green;
+        }
+        input:invalid, textarea:invalid {
+            border: 2px solid red;
+        }
+        input:focus:invalid, textarea:focus:invalid{
+            border: 1px solid black;
+        }
+        /* input:required, textarea:required{
+            border: 1px solid orange;
+        } */
+    </style>
+</head>
+
+<body>
+    <header id="mainheader">
+        <nav>
+            <ul>
+                <li><img src="images/cake.svg" height="55" /></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pieoverview.html">All pies</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div style="width:1000px;margin-left: auto;margin-right: auto;">
+        <aside id="leftmenu">
+            <a href="index.html"><img src="images/bethanylogo.png" /></a>
+
+            <header>
+                <h4 style="text-align: center;">Browse our pies</h4>
+            </header>
+            <ul>
+                <li><a href="pieoverview.html">All pies</a></li>
+                <li><a href="cheesecakes.html">Cheese cakes</a></li>
+                <li><a href="fruitpies.html">Fruit pies</a></li>
+                <li><a href="seasonalpies.html">Seasonal pies</a></li>
+            </ul>
+        </aside>
+        <main id="main">
+            <h1>Contact Us</h1>
+            <form action="contact.html" enctype="application/x-www-form-urlencoded" method="GET">
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    <input type="hidden" name="source" value="Contact-Form"> <br>
+                    <div class="form-fleld">
+                        <label for="userName">
+                            <div class="form-label">Name</div>
+                            <input required type="text" name="userName" id="userName">
+                        </label>
+                    </div>
+                    <div class="form-field">
+                        <label for="userPassword">
+                            <div class="form-label">Password</div>
+                            <input required type="password" name="userPassword" id="userPassword">
+                        </label> <br> <button id="show-or-hide-password">Show or Hide Password</button><br>
+                    </div>
+                    <div class="form-field">
+                        <label for="userEmail">
+                            <div class="form-label"> Email</div>
+                            <input required type="email" name="userEmail" id="userEmail">
+                        </label><br>
+                    </div>
+                    <div class="form-field">
+                        <label for="userTelephone">
+                            <div class="form-label">Telephone</div>
+                            <input pattern="^[0]\d{10}$" required type="tel" name="userTelephone" id="userTelephone">
+                        </label>
+                    </div>
+                    <div class="form-field">
+                        <fieldset style="width: 50%;">
+                            <legend>Phone Type</legend>
+                            <label for="cell">Cell <input type="radio" name="phoneType" id="cell" value="cell"></label>
+                            <label for="work">Work<input type="radio" name="phoneType" id="work" value="work"></label>
+                            <label for="home">Home<input type="radio" name="phoneType" id="home" value="home"></label>
+                        </fieldset>
+                    </div>
+                    <br>
+                </fieldset>
+                <fieldset>
+                    <legend>User Information</legend>
+                    <div class="form-field">
+                        <label for="userAge">
+                            <div class="form-label">Age</div>
+                            <input required type="number" max="50" min="18" name="userAge" id="userAge">
+                        </label><br>
+                    </div>
+                    <div class="form-field">
+                        <label for="dateIssued">
+                            <div class="form-label">Date Issued</div>
+                            <input required type="date" name="dateIssued" id="dateIssued">
+                        </label><br>
+                    </div>
+                    <div class="form-field">
+                        <label for="timeIssued">
+                            <div class="form-label">Issued Time</div>
+                            <input required type="time" name="timeIssued" id="timeIssued">
+                        </label><br>
+                    </div>
+                    <div class="form-field">
+                        <label for="severity"> <div class="form-label">Severity</div>
+                            <input required type="range" min="0" max='10' name="severity" id="severity">
+                        </label><br>
+                    </div>
+                    <div class="form-field">
+                        <label for="userPreference"> <div class="form-label">Your Preference</div>
+                            <select required name="userPreference" id="userPreference">
+                                <optgroup label="Store">
+                                    <option value="webstore">Web Store</option>
+                                    <option value="physical store">Physical Store</option>
+                                </optgroup>
+                                <optgroup label="Training Services">
+                                    <option value="software development">Software Development</option>
+                                    <option value="web development">Web Development</option>
+                                </optgroup>
+                            </select>
+                        </label><br>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Feedback Information</legend>
+                    <div class="form-field">
+                        <input type="checkbox" name="contactBy" id="phone" value="phone"> <label
+                            for="phone">Phone</label>
+                        <input type="checkbox" name="contactBy" id="email" value="email"> <label
+                            for="email">Email</label>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="feedbackMessage"><div class="form-label">Your Message</div>
+                        </label>
+                        <textarea required name="feedbackMessage" id="feedbackMessage" cols="30" rows="10"></textarea><br>
+                    </div>
+                </fieldset>
+                <div class="form-field">
+                    <input type="submit" value="Send Contact">
+                </div>
+            </form>
+
+        </main>
+
+        <footer>
+            <p>Our address is
+            <address>Bethany's Pie Shop - Bakery Street 555 Brussels Belgium</address>
+            </p>
+            <p><small>&copy; 2020 Bethany's Pie Shop - All rights reserved</small></p>
+            <p>Contact us via <a href="mailto:info@bethanyspieshop.com">email</a></p>
+            <p><small><a href="https://www.snowball.be">Created by Snowball</a></small></p>
+        </footer>
+    </div>
+
+
+    <script>
+        const showOrHidePasswordBurron = document.querySelector('#show-or-hide-password');
+        const passwordField = document.querySelector('#userPassword');
+        showOrHidePasswordBurron.addEventListener('click', (e) => {
+            e.preventDefault()
+            console.log(e.target)
+            console.log(passwordField.getAttribute('type'))
+
+
+            if (passwordField.getAttribute('type') === 'password') {
+                passwordField.setAttribute('type', 'text')
+            } else {
+                passwordField.setAttribute('type', 'password')
+            }
+
+
+
+
+        });
+    </script>
+</body>
+
+</html>
